@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Üye Portali — Tarsus 88 Kooperatifi</title>
+<meta name="description" content="Tarsus 88 Kooperatifi üye girişi. Belge takibi, iş ilanları, aidat bilgisi ve kooperatif duyurularına erişim.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0c0d0f;--ink2:#111318;--ink3:#181b22;--steel:#21252f;
+  --fog:#8892a4;--mist:#b8c0cc;--paper:#e8ecf0;
+  --amber:#e85d1a;--amber2:#ff7a3d;--amber3:#ffaa7a;--white:#fff;
+  --green:#22c55e;--red:#ef4444;--blue:#3b82f6;--yellow:#f59e0b;
+  --fd:'Bebas Neue',sans-serif;--fs:'Barlow',sans-serif;--fm:'Barlow Condensed',sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+html{overflow-x:hidden}
+body{background:var(--ink);color:var(--mist);font-family:var(--fs);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::-webkit-scrollbar{display:none}*{scrollbar-width:none}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:800;padding:1.2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(11,12,16,.97);backdrop-filter:blur(32px);border-bottom:1px solid rgba(232,93,26,.12)}
+.n-logo{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.n-hex{width:28px;height:28px;background:var(--amber);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:.65rem;color:#fff}
+.n-brand{font-family:var(--fm);font-size:.85rem;letter-spacing:.25em;font-weight:700;color:var(--white);text-transform:uppercase}
+.n-badge{font-family:var(--fm);font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;background:rgba(232,93,26,.15);color:var(--amber2);padding:.15rem .5rem;margin-left:.5rem;font-weight:600}
+.n-back{font-family:var(--fm);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(232,236,240,.6);text-decoration:none;transition:color .2s;font-weight:600}
+.n-back:hover{color:var(--amber2)}
+/* LOGIN SCREEN */
+#loginScreen{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(160deg,var(--ink) 0%,var(--ink2) 50%,var(--ink) 100%);
+  position:relative;overflow:hidden;padding-top:60px;
+}
+#loginScreen::before{content:'';position:absolute;top:-20%;right:-10%;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(232,93,26,.07) 0%,transparent 65%);pointer-events:none}
+#loginScreen::after{content:'';position:absolute;bottom:-20%;left:-10%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(232,93,26,.04) 0%,transparent 65%);pointer-events:none}
+.login-box{
+  background:rgba(17,19,24,.9);border:1px solid rgba(232,93,26,.15);
+  padding:3.5rem;width:100%;max-width:440px;position:relative;z-index:2;
+  backdrop-filter:blur(20px);
+}
+.login-logo{display:flex;align-items:center;gap:1rem;justify-content:center;margin-bottom:2.5rem}
+.login-hex{width:52px;height:52px;background:var(--amber);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:1.2rem;color:#fff;box-shadow:0 0 30px rgba(232,93,26,.4)}
+.login-brand{font-family:var(--fd);font-size:2rem;color:var(--white);letter-spacing:.08em}
+.login-title{font-family:var(--fm);font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--amber2);text-align:center;margin-bottom:2.5rem;font-weight:600}
+.login-field{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.2rem}
+.login-lbl{font-family:var(--fm);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);font-weight:600}
+.login-inp{background:rgba(12,13,15,.8);border:1px solid rgba(232,93,26,.15);color:var(--mist);padding:.85rem 1rem;font-family:var(--fs);font-size:.95rem;outline:none;transition:border-color .3s,box-shadow .3s;width:100%}
+.login-inp:focus{border-color:var(--amber);box-shadow:inset 3px 0 0 var(--amber)}
+.login-inp::placeholder{color:rgba(184,192,204,.2)}
+.login-btn{
+  width:100%;padding:1rem;margin-top:1.5rem;
+  background:var(--amber);border:none;cursor:pointer;
+  font-family:var(--fm);font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;
+  color:#fff;font-weight:700;transition:background .3s,transform .2s;
+  clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);
+}
+.login-btn:hover{background:var(--amber2);transform:translateY(-1px)}
+.login-demo{text-align:center;margin-top:1.5rem}
+.login-demo-btn{background:none;border:1px solid rgba(232,93,26,.2);color:var(--fog);font-family:var(--fm);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;padding:.5rem 1.2rem;cursor:pointer;transition:all .25s;font-weight:600}
+.login-demo-btn:hover{border-color:var(--amber2);color:var(--amber2)}
+.login-note{font-size:.8rem;color:var(--fog);text-align:center;margin-top:1rem;line-height:1.6;font-weight:300}
+.login-note a{color:var(--amber2);text-decoration:none}
+.login-err{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#fca5a5;padding:.6rem 1rem;font-family:var(--fm);font-size:.62rem;letter-spacing:.1em;margin-top:.8rem;display:none;font-weight:600}
+/* DASHBOARD */
+#dashboard{display:none;min-height:100vh;padding-top:60px}
+/* Portal nav */
+.portal-nav{
+  background:var(--ink2);border-bottom:1px solid rgba(232,93,26,.08);
+  padding:.6rem 2.5rem;display:flex;align-items:center;gap:0;overflow-x:auto;
+}
+.pnav-item{
+  font-family:var(--fm);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--fog);padding:.6rem 1rem;cursor:pointer;transition:color .2s;
+  white-space:nowrap;font-weight:600;border-bottom:2px solid transparent;
+}
+.pnav-item:hover{color:var(--mist)}
+.pnav-item.on{color:var(--amber2);border-bottom-color:var(--amber2)}
+/* Portal layout */
+.portal-layout{display:grid;grid-template-columns:240px 1fr;min-height:calc(100vh - 110px)}
+.portal-side{background:var(--ink2);padding:2rem 1.5rem;border-right:1px solid rgba(232,93,26,.06)}
+.portal-main{padding:2.5rem;overflow-y:auto}
+/* User card */
+.user-card{background:rgba(232,93,26,.06);border:1px solid rgba(232,93,26,.12);padding:1.5rem;margin-bottom:2rem}
+.user-avatar{width:52px;height:52px;background:var(--amber);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:1.2rem;color:#fff;margin-bottom:1rem}
+.user-name{font-family:var(--fm);font-size:.95rem;font-weight:700;color:var(--white);letter-spacing:.02em;margin-bottom:.2rem}
+.user-id{font-family:var(--fm);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--fog);font-weight:600}
+.user-status{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--fm);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-top:.6rem;font-weight:600}
+.user-status::before{content:'';width:6px;height:6px;background:var(--green);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
+/* Side menu */
+.side-menu{list-style:none;display:flex;flex-direction:column;gap:.2rem}
+.side-item{display:flex;align-items:center;gap:.7rem;padding:.65rem .8rem;font-family:var(--fm);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fog);cursor:pointer;transition:all .2s;font-weight:600;border-left:2px solid transparent}
+.side-item:hover{color:var(--mist);background:rgba(255,255,255,.03)}
+.side-item.on{color:var(--amber2);background:rgba(232,93,26,.06);border-left-color:var(--amber2)}
+.side-icon{font-size:14px;width:16px;text-align:center;flex-shrink:0}
+.side-badge{margin-left:auto;background:var(--amber);color:#fff;font-size:.5rem;padding:.1rem .4rem;font-family:var(--fm);font-weight:700;border-radius:2px}
+/* Dashboard panels */
+.panel{display:none}
+.panel.on{display:block}
+/* Stats row */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-bottom:2.5rem}
+.stat-card{background:var(--ink2);padding:1.5rem;position:relative;overflow:hidden}
+.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--amber2),transparent)}
+.stat-n{font-family:var(--fd);font-size:2.4rem;letter-spacing:.05em;line-height:1;margin-bottom:.4rem}
+.stat-l{font-family:var(--fm);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--fog);font-weight:600}
+.stat-sub{font-size:.8rem;color:var(--fog);margin-top:.4rem;font-weight:300}
+/* Status colors */
+.c-green{color:var(--green)}
+.c-red{color:var(--red)}
+.c-amber{color:var(--amber2)}
+.c-blue{color:var(--blue)}
+/* Section title */
+.panel-title{font-family:var(--fm);font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);margin-bottom:1.5rem;font-weight:700;padding-bottom:.5rem;border-bottom:1px solid rgba(232,93,26,.08)}
+/* Document table */
+.doc-table{width:100%;border-collapse:collapse}
+.doc-table th{font-family:var(--fm);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--fog);text-align:left;padding:.6rem 1rem;border-bottom:1px solid rgba(255,255,255,.05);font-weight:600}
+.doc-table td{padding:.85rem 1rem;font-size:.88rem;color:var(--mist);border-bottom:1px solid rgba(255,255,255,.03);font-weight:300}
+.doc-table tr:hover td{background:rgba(255,255,255,.02)}
+.status-badge{display:inline-flex;align-items:center;gap:.35rem;font-family:var(--fm);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .6rem;font-weight:700}
+.st-ok{background:rgba(34,197,94,.12);color:#4ade80}
+.st-warn{background:rgba(245,158,11,.12);color:#fcd34d}
+.st-exp{background:rgba(239,68,68,.12);color:#f87171}
+/* Notice card */
+.notice{background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.2);padding:1rem 1.2rem;display:flex;align-items:flex-start;gap:.8rem;margin-bottom:1rem}
+.notice-icon{font-size:14px;flex-shrink:0;margin-top:.1rem}
+.notice-title{font-family:var(--fm);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:#fcd34d;margin-bottom:.25rem;font-weight:700}
+.notice-body{font-size:.85rem;color:var(--fog);line-height:1.6;font-weight:300}
+/* Announcement list */
+.ann-list{display:flex;flex-direction:column;gap:.5rem}
+.ann-item{background:var(--ink2);padding:1.2rem 1.5rem;display:flex;align-items:flex-start;gap:1rem;transition:background .25s;cursor:pointer}
+.ann-item:hover{background:var(--ink3)}
+.ann-dot{width:8px;height:8px;background:var(--amber2);border-radius:50%;flex-shrink:0;margin-top:.35rem}
+.ann-content{}
+.ann-title{font-family:var(--fm);font-size:.88rem;font-weight:600;color:var(--white);letter-spacing:.01em;margin-bottom:.25rem}
+.ann-date{font-family:var(--fm);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--fog);font-weight:500}
+/* Action buttons */
+.action-btn{font-family:var(--fm);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;background:var(--amber);color:#fff;border:none;padding:.55rem 1.4rem;cursor:pointer;font-weight:700;clip-path:polygon(5px 0%,100% 0%,calc(100% - 5px) 100%,0% 100%);transition:background .25s}
+.action-btn:hover{background:var(--amber2)}
+.action-btn-ghost{background:none;border:1px solid rgba(232,93,26,.2);color:var(--amber2);font-family:var(--fm);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;padding:.55rem 1.2rem;cursor:pointer;font-weight:600;transition:all .25s}
+.action-btn-ghost:hover{border-color:var(--amber2);background:rgba(232,93,26,.06)}
+/* Empty state */
+.empty{text-align:center;padding:4rem 2rem}
+.empty-icon{font-size:3rem;margin-bottom:1rem;opacity:.3}
+.empty-text{font-family:var(--fm);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--fog);font-weight:600}
+/* COMING SOON OVERLAY */
+.coming-soon{
+  background:rgba(12,13,15,.85);backdrop-filter:blur(8px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:4rem 2rem;
+}
+.cs-title{font-family:var(--fd);font-size:2.5rem;color:var(--white);letter-spacing:.06em;margin-bottom:.8rem}
+.cs-sub{font-size:.95rem;color:var(--fog);font-weight:300;line-height:1.7;max-width:360px}
+.cs-badge{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fm);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber2);background:rgba(232,93,26,.1);padding:.4rem 1rem;margin-bottom:1.5rem;font-weight:700}
+@media(max-width:900px){
+  .stats-row{grid-template-columns:1fr 1fr}
+  .portal-layout{grid-template-columns:1fr}
+  .portal-side{display:none}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="n-logo">
+    <div class="n-hex">88</div>
+    <span class="n-brand">Tarsus 88</span>
+    <span class="n-badge">Üye Portali</span>
+  </a>
+  <a href="index.html" class="n-back">← Ana Sayfaya Dön</a>
+</nav>
+
+<!-- LOGIN -->
+<div id="loginScreen">
+  <div class="login-box">
+    <div class="login-logo">
+      <div class="login-hex">88</div>
+      <span class="login-brand">Tarsus 88</span>
+    </div>
+    <div class="login-title">Üye Girişi</div>
+    <div class="login-field">
+      <label class="login-lbl">TC Kimlik No veya Üye No</label>
+      <input type="text" class="login-inp" id="loginUser" placeholder="12345678901">
+    </div>
+    <div class="login-field">
+      <label class="login-lbl">Şifre</label>
+      <input type="password" class="login-inp" id="loginPass" placeholder="••••••••">
+    </div>
+    <button class="login-btn" onclick="doLogin()">Giriş Yap →</button>
+    <div id="loginErr" class="login-err">Hatalı kullanıcı adı veya şifre.</div>
+    <div class="login-demo">
+      <button class="login-demo-btn" onclick="demoLogin()">Demo Girişi (Göstermelik)</button>
+    </div>
+    <p class="login-note">
+      Şifrenizi mi unuttunuz? <a href="index.html#contact">Kooperatifi arayın</a><br>
+      Üye değil misiniz? <a href="index.html#uye">Başvuru Formu</a>
+    </p>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard">
+  <nav style="position:relative;top:0;padding:1rem 2.5rem">
+    <a href="index.html" class="n-logo">
+      <div class="n-hex">88</div>
+      <span class="n-brand">Tarsus 88</span>
+      <span class="n-badge">Üye Portali</span>
+    </a>
+    <div style="display:flex;align-items:center;gap:1rem">
+      <span style="font-family:var(--fm);font-size:.62rem;letter-spacing:.1em;color:var(--fog);font-weight:600" id="dashUser">Hasan Y.</span>
+      <button onclick="doLogout()" style="font-family:var(--fm);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;background:none;border:1px solid rgba(232,93,26,.2);color:var(--fog);padding:.3rem .8rem;cursor:pointer;font-weight:600">Çıkış</button>
+    </div>
+  </nav>
+
+  <!-- Portal nav tabs -->
+  <div class="portal-nav">
+    <div class="pnav-item on" onclick="switchPanel('overview',this)">Ana Sayfa</div>
+    <div class="pnav-item" onclick="switchPanel('docs',this)">Belgelerim</div>
+    <div class="pnav-item" onclick="switchPanel('jobs',this)">İş İlanları</div>
+    <div class="pnav-item" onclick="switchPanel('aidat',this)">Aidat & Ödemeler</div>
+    <div class="pnav-item" onclick="switchPanel('ann',this)">Duyurular</div>
+    <div class="pnav-item" onclick="switchPanel('profile',this)">Profilim</div>
+  </div>
+
+  <div class="portal-layout">
+    <!-- Sidebar -->
+    <div class="portal-side">
+      <div class="user-card">
+        <div class="user-avatar">HY</div>
+        <div class="user-name">Hasan Yıldırım</div>
+        <div class="user-id">Üye No: T88-0001</div>
+        <div class="user-status">Aktif Üye</div>
+      </div>
+      <ul class="side-menu">
+        <li class="side-item on" onclick="switchPanel('overview',null)"><span class="side-icon">⊞</span>Genel Bakış</li>
+        <li class="side-item" onclick="switchPanel('docs',null)"><span class="side-icon">📄</span>Belgelerim<span class="side-badge">1</span></li>
+        <li class="side-item" onclick="switchPanel('jobs',null)"><span class="side-icon">💼</span>İş İlanları<span class="side-badge">4</span></li>
+        <li class="side-item" onclick="switchPanel('aidat',null)"><span class="side-icon">💳</span>Aidat & Ödemeler</li>
+        <li class="side-item" onclick="switchPanel('ann',null)"><span class="side-icon">📢</span>Duyurular</li>
+        <li class="side-item" onclick="switchPanel('profile',null)"><span class="side-icon">👤</span>Profilim</li>
+      </ul>
+    </div>
+
+    <!-- Main content -->
+    <div class="portal-main">
+
+      <!-- OVERVIEW -->
+      <div class="panel on" id="panel-overview">
+        <div class="stats-row">
+          <div class="stat-card">
+            <div class="stat-n c-green">Aktif</div>
+            <div class="stat-l">Üyelik Durumu</div>
+            <div class="stat-sub">2025 aidat ödendi</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-n c-amber">47</div>
+            <div class="stat-l">Gün K1 Süresi</div>
+            <div class="stat-sub">Yenileme hatırlatması</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-n c-blue">4</div>
+            <div class="stat-l">Aktif İlan</div>
+            <div class="stat-sub">Uygun yük ilanları</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-n c-green">✓</div>
+            <div class="stat-l">Sigorta</div>
+            <div class="stat-sub">Geçerli — 8 ay kaldı</div>
+          </div>
+        </div>
+
+        <div class="notice">
+          <span class="notice-icon">⚠️</span>
+          <div>
+            <div class="notice-title">K1 Belgesi Yakında Dolacak</div>
+            <div class="notice-body">K1 Yetki Belgenizin son kullanma tarihi 47 gün sonra dolmaktadır. Yenileme işlemi için Ulaştırma Bakanlığı'nın e-devlet sistemine başvurmanız gerekmektedir.</div>
+          </div>
+        </div>
+
+        <div class="panel-title">Son Duyurular</div>
+        <div class="ann-list">
+          <div class="ann-item">
+            <div class="ann-dot"></div>
+            <div class="ann-content">
+              <div class="ann-title">Olağan Genel Kurul 2025 Gerçekleştirildi</div>
+              <div class="ann-date">25 Ocak 2025</div>
+            </div>
+          </div>
+          <div class="ann-item">
+            <div class="ann-dot" style="background:var(--fog)"></div>
+            <div class="ann-content">
+              <div class="ann-title">2025 Aidat Ödemeleri — Son Tarih 31 Mart</div>
+              <div class="ann-date">1 Ocak 2025</div>
+            </div>
+          </div>
+          <div class="ann-item">
+            <div class="ann-dot" style="background:var(--fog)"></div>
+            <div class="ann-content">
+              <div class="ann-title">UETDS Yük Bildirim Yönetmeliği Değişikliği</div>
+              <div class="ann-date">30 Temmuz 2024</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DOCS -->
+      <div class="panel" id="panel-docs">
+        <div class="panel-title">Belgelerim</div>
+        <div class="notice">
+          <span class="notice-icon">⚠️</span>
+          <div>
+            <div class="notice-title">1 Belge Yakında Dolacak</div>
+            <div class="notice-body">K1 Yetki Belgeniz 47 gün içinde dolmaktadır.</div>
+          </div>
+        </div>
+        <table class="doc-table">
+          <thead>
+            <tr>
+              <th>Belge Adı</th>
+              <th>Belge No</th>
+              <th>Son Geçerlilik</th>
+              <th>Durum</th>
+              <th>İşlem</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>K1 Yetki Belgesi</td>
+              <td style="font-family:var(--fm);font-size:.8rem;letter-spacing:.05em">K1-2021-XXXXX</td>
+              <td>5 Mayıs 2025</td>
+              <td><span class="status-badge st-warn">⚠️ 47 Gün</span></td>
+              <td><button class="action-btn-ghost" onclick="alert('e-Devlet yenileme sayfasına yönlendiriliyorsunuz...')">Yenile</button></td>
+            </tr>
+            <tr>
+              <td>Zorunlu Mali Sorumluluk Sigortası</td>
+              <td style="font-family:var(--fm);font-size:.8rem;letter-spacing:.05em">SG-2024-778XX</td>
+              <td>15 Kasım 2025</td>
+              <td><span class="status-badge st-ok">✓ Geçerli</span></td>
+              <td><button class="action-btn-ghost">Görüntüle</button></td>
+            </tr>
+            <tr>
+              <td>Araç Muayene Belgesi</td>
+              <td style="font-family:var(--fm);font-size:.8rem;letter-spacing:.05em">MU-33-XX-XXX</td>
+              <td>22 Ağustos 2025</td>
+              <td><span class="status-badge st-ok">✓ Geçerli</span></td>
+              <td><button class="action-btn-ghost">Görüntüle</button></td>
+            </tr>
+            <tr>
+              <td>Taşıt Ruhsatı</td>
+              <td style="font-family:var(--fm);font-size:.8rem;letter-spacing:.05em">33 XX 000</td>
+              <td>Süresiz</td>
+              <td><span class="status-badge st-ok">✓ Geçerli</span></td>
+              <td><button class="action-btn-ghost">Görüntüle</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- JOBS -->
+      <div class="panel" id="panel-jobs">
+        <div class="panel-title" style="display:flex;align-items:center;justify-content:space-between">
+          <span>İş İlanları</span>
+          <a href="ilanlar.html" style="font-family:var(--fm);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber2);text-decoration:none;font-weight:600">Tüm İlanlar →</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:1rem">
+          <div style="background:var(--ink2);padding:1.5rem;border-left:3px solid var(--amber2)">
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap">
+              <div>
+                <div style="font-family:var(--fm);font-size:.95rem;font-weight:700;color:var(--white);margin-bottom:.4rem">Mersin → İstanbul | Tenteli TIR</div>
+                <div style="font-size:.85rem;color:var(--fog);font-weight:300">24 Ton · Tekstil · Pazartesi kalkış · Parsiyel seçenek var</div>
+              </div>
+              <div style="text-align:right;flex-shrink:0">
+                <div style="font-family:var(--fd);font-size:1.4rem;color:var(--amber2);letter-spacing:.05em">₺8.500</div>
+                <div style="font-family:var(--fm);font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:var(--fog);font-weight:600">Tahmini Ücret</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:.6rem;margin-top:1rem">
+              <button class="action-btn">Teklif Ver</button>
+              <button class="action-btn-ghost">Detay</button>
+            </div>
+          </div>
+          <div style="background:var(--ink2);padding:1.5rem;border-left:3px solid var(--fog)">
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap">
+              <div>
+                <div style="font-family:var(--fm);font-size:.95rem;font-weight:700;color:var(--white);margin-bottom:.4rem">Adana → Ankara | Lowbed</div>
+                <div style="font-size:.85rem;color:var(--fog);font-weight:300">İnşaat makinesi · İş makinesi · Özel izin gerekli · 3 gün süre</div>
+              </div>
+              <div style="text-align:right;flex-shrink:0">
+                <div style="font-family:var(--fd);font-size:1.4rem;color:var(--amber2);letter-spacing:.05em">₺14.200</div>
+                <div style="font-family:var(--fm);font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:var(--fog);font-weight:600">Tahmini Ücret</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:.6rem;margin-top:1rem">
+              <button class="action-btn">Teklif Ver</button>
+              <button class="action-btn-ghost">Detay</button>
+            </div>
+          </div>
+          <div style="background:var(--ink2);padding:1.5rem;border-left:3px solid var(--fog)">
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap">
+              <div>
+                <div style="font-family:var(--fm);font-size:.95rem;font-weight:700;color:var(--white);margin-bottom:.4rem">Tarsus → Gaziantep | Tenteli</div>
+                <div style="font-size:.85rem;color:var(--fog);font-weight:300">18 Ton · Plastik hammadde · Cuma kalkışı</div>
+              </div>
+              <div style="text-align:right;flex-shrink:0">
+                <div style="font-family:var(--fd);font-size:1.4rem;color:var(--amber2);letter-spacing:.05em">₺3.200</div>
+                <div style="font-family:var(--fm);font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:var(--fog);font-weight:600">Tahmini Ücret</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:.6rem;margin-top:1rem">
+              <button class="action-btn">Teklif Ver</button>
+              <button class="action-btn-ghost">Detay</button>
+            </div>
+          </div>
+          <div style="background:var(--ink2);padding:1.5rem;border-left:3px solid var(--fog)">
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap">
+              <div>
+                <div style="font-family:var(--fm);font-size:.95rem;font-weight:700;color:var(--white);margin-bottom:.4rem">Mersin → İzmir | Parsiyel LTL</div>
+                <div style="font-size:.85rem;color:var(--fog);font-weight:300">4.5 Ton · 18 m³ · Konsolidasyon · Haftalık sefer</div>
+              </div>
+              <div style="text-align:right;flex-shrink:0">
+                <div style="font-family:var(--fd);font-size:1.4rem;color:var(--amber2);letter-spacing:.05em">₺2.800</div>
+                <div style="font-family:var(--fm);font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:var(--fog);font-weight:600">Tahmini Ücret</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:.6rem;margin-top:1rem">
+              <button class="action-btn">Teklif Ver</button>
+              <button class="action-btn-ghost">Detay</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AİDAT -->
+      <div class="panel" id="panel-aidat">
+        <div class="panel-title">Aidat & Ödemeler</div>
+        <div class="coming-soon">
+          <span class="cs-badge">⚙️ Yakında</span>
+          <div class="cs-title">Online Ödeme</div>
+          <p class="cs-sub">İyzico entegrasyonu ile online aidat ödeme sistemi geliştirme aşamasındadır. Şimdilik aidat ödemeleri için kooperatif muhasebe birimiyle iletişime geçiniz.</p>
+          <div style="margin-top:1.5rem;display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap">
+            <a href="tel:+903246363388" class="action-btn" style="text-decoration:none">+90 324 636 33 88</a>
+            <a href="mailto:tarsuskoopmuhasebe@88tarsuskamkoop.com" class="action-btn-ghost" style="text-decoration:none">E-posta</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- DUYURULAR -->
+      <div class="panel" id="panel-ann">
+        <div class="panel-title">Kooperatif Duyuruları</div>
+        <div class="ann-list">
+          <div class="ann-item">
+            <div class="ann-dot"></div>
+            <div class="ann-content">
+              <div class="ann-title">Olağan Genel Kurul 2025 Gerçekleştirildi</div>
+              <div class="ann-date">25 Ocak 2025 — Kooperatif</div>
+            </div>
+          </div>
+          <div class="ann-item">
+            <div class="ann-dot"></div>
+            <div class="ann-content">
+              <div class="ann-title">Dijital Üye Portali Beta Sürümü Yayında</div>
+              <div class="ann-date">1 Mart 2025 — Teknoloji</div>
+            </div>
+          </div>
+          <div class="ann-item">
+            <div class="ann-dot" style="background:var(--fog)"></div>
+            <div class="ann-content">
+              <div class="ann-title">2025 Aidat Ödemeleri — Son Tarih 31 Mart</div>
+              <div class="ann-date">1 Ocak 2025 — Mali</div>
+            </div>
+          </div>
+          <div class="ann-item">
+            <div class="ann-dot" style="background:var(--fog)"></div>
+            <div class="ann-content">
+              <div class="ann-title">UETDS Yük Bildirim Yönetmeliği Değişikliği — Üye Bilgilendirmesi</div>
+              <div class="ann-date">30 Temmuz 2024 — Mevzuat</div>
+            </div>
+          </div>
+          <div class="ann-item">
+            <div class="ann-dot" style="background:var(--fog)"></div>
+            <div class="ann-content">
+              <div class="ann-title">Sektör Taleplerimiz TBMM Gündemine Taşındı</div>
+              <div class="ann-date">10 Nisan 2024 — Meclis</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROFİL -->
+      <div class="panel" id="panel-profile">
+        <div class="panel-title">Profilim</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem">
+          <div>
+            <div style="font-family:var(--fm);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:.3rem;font-weight:600">Ad Soyad</div>
+            <div style="font-size:.95rem;color:var(--white);font-weight:400">Hasan Yıldırım</div>
+          </div>
+          <div>
+            <div style="font-family:var(--fm);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:.3rem;font-weight:600">Üye No</div>
+            <div style="font-size:.95rem;color:var(--white);font-family:var(--fm);letter-spacing:.05em">T88-0001</div>
+          </div>
+          <div>
+            <div style="font-family:var(--fm);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:.3rem;font-weight:600">Araç Plakası</div>
+            <div style="font-size:.95rem;color:var(--white);font-family:var(--fm);letter-spacing:.05em">33 AA 001</div>
+          </div>
+          <div>
+            <div style="font-family:var(--fm);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:.3rem;font-weight:600">Araç Tipi</div>
+            <div style="font-size:.95rem;color:var(--white)">Tenteli TIR</div>
+          </div>
+          <div>
+            <div style="font-family:var(--fm);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:.3rem;font-weight:600">Telefon</div>
+            <div style="font-size:.95rem;color:var(--white)">+90 533 *** ****</div>
+          </div>
+          <div>
+            <div style="font-family:var(--fm);font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:.3rem;font-weight:600">Üyelik Tarihi</div>
+            <div style="font-size:.95rem;color:var(--white)">1998</div>
+          </div>
+        </div>
+        <div style="margin-top:2rem;display:flex;gap:.8rem;flex-wrap:wrap">
+          <button class="action-btn" onclick="alert('Profil güncelleme için kooperatifi arayın: +90 324 636 33 88')">Bilgileri Güncelle</button>
+          <button class="action-btn-ghost" onclick="alert('Şifre sıfırlama için kooperatifi arayın.')">Şifre Değiştir</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+function doLogin(){
+  var u=document.getElementById('loginUser').value;
+  var p=document.getElementById('loginPass').value;
+  if(!u||!p){document.getElementById('loginErr').style.display='block';return;}
+  // Demo: herhangi bir giriş kabul et
+  document.getElementById('loginErr').style.display='none';
+  showDashboard('Demo Kullanıcı');
+}
+function demoLogin(){showDashboard('Hasan Y.');}
+function showDashboard(name){
+  document.getElementById('loginScreen').style.display='none';
+  document.getElementById('dashboard').style.display='block';
+  document.getElementById('dashUser').textContent=name;
+}
+function doLogout(){
+  document.getElementById('dashboard').style.display='none';
+  document.getElementById('loginScreen').style.display='flex';
+  document.getElementById('loginUser').value='';
+  document.getElementById('loginPass').value='';
+}
+function switchPanel(name, btn){
+  document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('on');});
+  var target=document.getElementById('panel-'+name);
+  if(target)target.classList.add('on');
+  document.querySelectorAll('.pnav-item,.side-item').forEach(function(b){b.classList.remove('on');});
+  if(btn)btn.classList.add('on');
+}
+// Enter key login
+document.getElementById('loginPass').addEventListener('keydown',function(e){if(e.key==='Enter')doLogin();});
+document.getElementById('loginUser').addEventListener('keydown',function(e){if(e.key==='Enter')doLogin();});
+</script>
+</body>
+</html>
