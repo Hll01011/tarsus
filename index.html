@@ -2316,40 +2316,35 @@ const CITIES=["Adana","Adıyaman","Afyonkarahisar","Ağrı","Aksaray","Amasya","
   CITIES.forEach(c=>{const o=document.createElement('option');o.value=o.textContent=c;s.appendChild(o)});
 });
 
-/* HERO PARALLAX — sadece arka plan, içerik sabit */
+/* HERO PARALLAX — titremesiz, tek RAF */
 (function(){
   const hBg     = document.getElementById('h-bg');
   const hGrid   = document.getElementById('h-grid');
-  const hHorizon= document.querySelector('.h-horizon');
   const heroEl  = document.getElementById('hero');
   if(!heroEl) return;
-  [hBg,hGrid,hHorizon].forEach(el=>{ if(el) el.style.willChange='transform'; });
 
-  let tx=0,ty=0,cx=0,cy=0,inside=false,rid=null;
-  function lerp(a,b,t){return a+(b-a)*t}
+  // willChange baştan sabit — açıp kapama titreme yaratıyor
+  if(hBg)   hBg.style.willChange='transform';
+  if(hGrid) hGrid.style.willChange='transform';
 
-  function tick(){
-    rid=null;
-    cx=lerp(cx,inside?tx:0,.05);
-    cy=lerp(cy,inside?ty:0,.05);
-    if(hBg)      hBg.style.transform    =`translate(${cx*-10}px,${cy*-6}px) scale(1.03)`;
-    if(hGrid)    hGrid.style.transform  =`translate(${cx*-18}px,${cy*-11}px)`;
-    if(hHorizon) hHorizon.style.transform=`translateX(${cx*6}px)`;
-    if(Math.abs(cx)>.005||Math.abs(cy)>.005) rid=requestAnimationFrame(tick);
-    else [hBg,hGrid,hHorizon].forEach(el=>{ if(el) el.style.willChange='auto'; });
-  }
+  let tx=0,ty=0,cx=0,cy=0;
 
-  heroEl.addEventListener('mousemove',e=>{
-    tx=(e.clientX/window.innerWidth -.5)*2;
-    ty=(e.clientY/window.innerHeight-.5)*2;
-    inside=true;
-    if(!rid) rid=requestAnimationFrame(tick);
+  // Mousemove — normalize -1..+1
+  document.addEventListener('mousemove',e=>{
+    tx=(e.clientX/window.innerWidth  - .5)*2;
+    ty=(e.clientY/window.innerHeight - .5)*2;
   },{passive:true});
 
-  heroEl.addEventListener('mouseleave',()=>{
-    inside=false;
-    if(!rid) rid=requestAnimationFrame(tick);
-  });
+  // Tek sürekli RAF — cursor döngüsüyle çakışmıyor çünkü farklı değişkenler
+  (function loop(){
+    requestAnimationFrame(loop);
+    // Yavaş lerp — titreme önlenir
+    cx+=(tx-cx)*.04;
+    cy+=(ty-cy)*.04;
+    // Scale YOK — scale titreme kaynağı
+    if(hBg)   hBg.style.transform  =`translate(${cx*-14}px,${cy*-8}px)`;
+    if(hGrid) hGrid.style.transform=`translate(${cx*-22}px,${cy*-13}px)`;
+  })();
 })();
 
 
