@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Blog — Tarsus 88 Kooperatifi</title>
+<meta name="description" content="Karayolu taşımacılık blog yazıları. TIR kiralama rehberi, fiyat hesaplama, mevzuat güncellemeleri, lojistik sektörü analizleri.">
+<link rel="canonical" href="https://www.tarsus88.com.tr/blog.html">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0c0d0f;--ink2:#111318;--ink3:#181b22;--steel:#21252f;
+  --fog:#8892a4;--mist:#b8c0cc;
+  --amber:#e85d1a;--amber2:#ff7a3d;--amber3:#ffaa7a;--white:#fff;
+  --fd:'Bebas Neue',sans-serif;--fs:'Barlow',sans-serif;--fm:'Barlow Condensed',sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+html{overflow-x:hidden;scroll-behavior:smooth}
+body{background:var(--ink);color:var(--mist);font-family:var(--fs);-webkit-font-smoothing:antialiased}
+::-webkit-scrollbar{display:none}*{scrollbar-width:none}
+#bar{position:fixed;top:0;left:0;height:2px;width:0;z-index:8000;background:linear-gradient(90deg,var(--amber),var(--amber2))}
+nav{position:fixed;top:0;left:0;right:0;z-index:800;padding:1.4rem 3.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(11,12,16,.97);backdrop-filter:blur(32px);border-bottom:1px solid rgba(232,93,26,.12)}
+.n-logo{display:flex;align-items:center;gap:.8rem;text-decoration:none}
+.n-hex{width:30px;height:30px;background:var(--amber);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:.7rem;color:#fff;box-shadow:0 0 20px rgba(232,93,26,.4)}
+.n-brand{font-family:var(--fm);font-size:.9rem;letter-spacing:.28em;font-weight:700;color:var(--white);text-transform:uppercase}
+.n-links{display:flex;list-style:none}
+.n-links a{font-family:var(--fm);font-size:.66rem;letter-spacing:.16em;font-weight:600;text-transform:uppercase;color:rgba(232,236,240,.7);text-decoration:none;padding:.35rem .85rem;transition:color .2s}
+.n-links a:hover,.n-links a.act{color:var(--white)}
+.n-portal{color:var(--amber2)!important;font-weight:700!important}
+.n-cta{font-family:var(--fm);font-size:.68rem;letter-spacing:.15em;font-weight:700;text-transform:uppercase;color:var(--ink);background:var(--amber2);padding:.55rem 1.4rem;text-decoration:none;clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%);transition:background .25s}
+.n-cta:hover{background:var(--amber3)}
+.wrap{max-width:1280px;margin:0 auto;padding:0 3.5rem}
+/* HERO */
+.ph{padding:9rem 0 5rem;background:var(--ink2);position:relative;overflow:hidden}
+.ph::before{content:'';position:absolute;top:-20%;right:0;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(232,93,26,.07) 0%,transparent 65%);pointer-events:none}
+.ph-eye{font-family:var(--fm);font-size:.63rem;letter-spacing:.42em;text-transform:uppercase;color:var(--amber2);display:flex;align-items:center;gap:.9rem;margin-bottom:1rem}
+.ph-eye::before{content:'◆';font-size:.4rem;opacity:.7}
+.ph-title{font-family:var(--fd);font-size:clamp(3rem,8vw,8rem);line-height:.9;letter-spacing:.06em;color:var(--white)}
+.ph-title span{color:var(--amber2)}
+.ph-sub{font-size:1rem;color:var(--fog);line-height:1.85;max-width:540px;margin-top:1.2rem;font-weight:300}
+.bc{padding:.8rem 0;background:var(--ink3)}
+.bc-i{display:flex;align-items:center;gap:.5rem;font-family:var(--fm);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase}
+.bc-i a{color:var(--amber);text-decoration:none}.bc-i span{color:var(--fog)}
+/* LAYOUT */
+.main-layout{display:grid;grid-template-columns:1fr 300px;gap:4rem;padding:5rem 0}
+/* ARTICLE VIEW */
+#articleView{display:none;padding:5rem 0}
+.art-back{font-family:var(--fm);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--amber2);background:none;border:none;cursor:pointer;font-weight:600;display:flex;align-items:center;gap:.5rem;margin-bottom:3rem;transition:gap .2s;padding:0}
+.art-back:hover{gap:.9rem}
+.art-back::before{content:'←'}
+.art-eyebrow{font-family:var(--fm);font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--amber);margin-bottom:1rem;font-weight:600}
+.art-title{font-family:var(--fd);font-size:clamp(2.5rem,5vw,5.5rem);line-height:.92;letter-spacing:.06em;color:var(--white);margin-bottom:1.5rem}
+.art-meta{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid rgba(232,93,26,.08)}
+.art-date{font-family:var(--fm);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--fog);font-weight:600}
+.art-read{font-family:var(--fm);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--fog);font-weight:600}
+/* Article body typography */
+.art-body{max-width:720px}
+.art-body p{font-size:1.05rem;color:var(--fog);line-height:1.95;margin-bottom:1.5rem;font-weight:300}
+.art-body p strong{color:var(--mist);font-weight:500}
+.art-body h2{font-family:var(--fm);font-size:1.3rem;font-weight:700;color:var(--white);letter-spacing:.02em;margin:2.5rem 0 1rem}
+.art-body h3{font-family:var(--fm);font-size:1.05rem;font-weight:700;color:var(--mist);letter-spacing:.02em;margin:1.8rem 0 .8rem}
+.art-body ul,.art-body ol{padding-left:1.4rem;margin-bottom:1.5rem}
+.art-body li{font-size:1rem;color:var(--fog);line-height:1.8;margin-bottom:.5rem;font-weight:300}
+.art-body li strong{color:var(--mist);font-weight:500}
+.art-body .highlight{background:rgba(232,93,26,.07);border-left:3px solid var(--amber2);padding:1.2rem 1.5rem;margin:2rem 0}
+.art-body .highlight p{margin-bottom:0;color:var(--mist)}
+/* BLOG LIST */
+.blog-featured{margin-bottom:2px}
+.bf{background:var(--ink2);padding:3.5rem;position:relative;overflow:hidden;cursor:pointer;transition:background .3s}
+.bf:hover{background:var(--ink3)}
+.bf::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--amber2),transparent)}
+.b-eye{font-family:var(--fm);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:.8rem;font-weight:600;display:flex;align-items:center;gap:.5rem}
+.b-eye::before{content:'◆';font-size:.38rem;opacity:.7}
+.b-title{font-family:var(--fm);font-size:1.6rem;font-weight:700;color:var(--white);line-height:1.2;letter-spacing:.01em;margin-bottom:.8rem;transition:color .25s}
+.bf:hover .b-title{color:var(--amber2)}
+.bf .b-title{font-size:1.9rem}
+.b-exc{font-size:.93rem;color:var(--fog);line-height:1.75;font-weight:300;margin-bottom:1.2rem}
+.b-meta{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+.b-date{font-family:var(--fm);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--fog);font-weight:600}
+.b-read-link{font-family:var(--fm);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber2);font-weight:600;transition:letter-spacing .2s}
+.bf:hover .b-read-link,.bc-card:hover .b-read-link{letter-spacing:.22em}
+.blog-list{display:flex;flex-direction:column;gap:2px}
+.bc-card{background:var(--ink2);display:grid;grid-template-columns:3px 1fr;cursor:pointer;transition:background .3s}
+.bc-card:hover{background:var(--ink3)}
+.bc-accent{background:rgba(232,93,26,.25);transition:background .3s}
+.bc-card:hover .bc-accent{background:var(--amber)}
+.bc-body{padding:2rem 2.5rem}
+/* WRITE PANEL */
+#writePanel{display:none;position:fixed;inset:0;z-index:9000;background:rgba(5,6,8,.97);backdrop-filter:blur(20px);overflow-y:auto;padding:2rem}
+#writePanel.on{display:block}
+.wp-wrap{max-width:780px;margin:0 auto}
+.wp-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:2.5rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(232,93,26,.12)}
+.wp-title{font-family:var(--fd);font-size:2.8rem;color:var(--amber2);letter-spacing:.06em}
+.wp-close{background:none;border:1px solid rgba(232,93,26,.2);color:var(--fog);font-family:var(--fm);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;padding:.5rem 1.2rem;cursor:pointer;font-weight:600;transition:.25s}
+.wp-close:hover{border-color:var(--amber2);color:var(--amber2)}
+.wp-form{display:grid;gap:1.2rem}
+.wf{display:flex;flex-direction:column;gap:.4rem}
+.wl{font-family:var(--fm);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);font-weight:600}
+.wi,.ws,.wt{background:rgba(12,13,15,.8);border:1px solid rgba(232,93,26,.15);color:var(--mist);padding:.8rem 1rem;font-family:var(--fs);font-size:.93rem;outline:none;transition:border-color .3s;width:100%}
+.wi:focus,.ws:focus,.wt:focus{border-color:var(--amber);box-shadow:inset 3px 0 0 var(--amber)}
+.wi::placeholder,.wt::placeholder{color:rgba(184,192,204,.2)}
+.ws option{background:#111318}
+.wt{min-height:280px;resize:vertical;line-height:1.7}
+.wp-hint{font-size:.82rem;color:var(--fog);font-weight:300;font-style:italic}
+.wp-btns{display:flex;gap:.8rem;margin-top:.5rem}
+.wp-pub{flex:1;background:var(--amber);color:#fff;border:none;padding:.9rem;font-family:var(--fm);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;font-weight:700;clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%);transition:background .25s}
+.wp-pub:hover{background:var(--amber2)}
+.wp-cancel{background:none;border:1px solid rgba(232,93,26,.2);color:var(--fog);font-family:var(--fm);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;padding:.9rem 1.5rem;cursor:pointer;font-weight:600;transition:.25s}
+.wp-cancel:hover{border-color:var(--amber2);color:var(--amber2)}
+/* SIDEBAR */
+.sw{background:var(--ink2);padding:1.8rem;margin-bottom:1.5rem}
+.sw-t{font-family:var(--fm);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);margin-bottom:1.2rem;font-weight:700;padding-bottom:.5rem;border-bottom:1px solid rgba(232,93,26,.08)}
+.sw-tags{display:flex;flex-wrap:wrap;gap:.5rem}
+.sw-tag{font-family:var(--fm);font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;color:var(--fog);border:1px solid rgba(255,255,255,.06);padding:.25rem .7rem;cursor:pointer;transition:.2s;font-weight:500}
+.sw-tag:hover{border-color:var(--amber2);color:var(--amber2)}
+.write-btn{width:100%;background:rgba(232,93,26,.08);border:1px solid rgba(232,93,26,.2);color:var(--amber2);font-family:var(--fm);font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;padding:.85rem;cursor:pointer;font-weight:700;transition:all .25s}
+.write-btn:hover{background:rgba(232,93,26,.14);border-color:var(--amber2)}
+.admin-del{font-family:var(--fm);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.2);color:#f87171;padding:.2rem .55rem;cursor:pointer;margin-left:.8rem;transition:.25s;font-weight:600}
+.admin-del:hover{background:rgba(239,68,68,.15)}
+/* FOOTER */
+footer{background:var(--ink);padding:2.5rem 3.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;border-top:1px solid rgba(232,93,26,.06)}
+.ft-l{display:flex;align-items:center;gap:.7rem}
+.ft-hex{width:24px;height:24px;background:var(--amber);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:.5rem;color:#fff}
+.ft-brand{font-family:var(--fm);font-size:.8rem;letter-spacing:.25em;font-weight:700;color:var(--white);text-transform:uppercase}
+.ft-nav{display:flex;gap:1.5rem;list-style:none;flex-wrap:wrap}
+.ft-nav a{font-family:var(--fm);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(184,192,204,.4);text-decoration:none;transition:color .25s;font-weight:600}
+.ft-nav a:hover{color:var(--amber2)}
+.ft-copy{font-family:var(--fm);font-size:.55rem;color:rgba(184,192,204,.3)}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.in{opacity:1;transform:translateY(0)}
+@media(max-width:1100px){nav{padding:1.2rem 2rem}.n-links{display:none}.wrap{padding:0 2rem}.main-layout{grid-template-columns:1fr}.bf{padding:2.5rem}footer{flex-direction:column;gap:1rem;padding:2rem}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+
+<!-- WRITE PANEL -->
+<div id="writePanel">
+  <div class="wp-wrap">
+    <div class="wp-head">
+      <div class="wp-title">Yazı Yaz</div>
+      <button class="wp-close" onclick="wpClose()">✕ Kapat</button>
+    </div>
+    <div class="wp-form">
+      <div class="wf"><label class="wl">Başlık *</label><input class="wi" id="wp-title" required placeholder="Yazı başlığı..."></div>
+      <div class="wf"><label class="wl">Kategori</label>
+        <select class="ws" id="wp-cat">
+          <option value="rehber">Rehber & İpuçları</option>
+          <option value="mevzuat">Mevzuat</option>
+          <option value="sektor">Sektör Analizi</option>
+          <option value="haber">Kooperatif Haberleri</option>
+        </select>
+      </div>
+      <div class="wf"><label class="wl">Özet (liste görünümü için)</label><input class="wi" id="wp-exc" placeholder="Yazının kısa özeti..."></div>
+      <div class="wf">
+        <label class="wl">İçerik *</label>
+        <textarea class="wt" id="wp-body" placeholder="Yazı içeriğini buraya yazın...&#10;&#10;## Alt Başlık eklemek için ## kullanın&#10;### Daha küçük başlık için ###&#10;**Kalın yazı** için iki yıldız arasına alın"></textarea>
+        <div class="wp-hint">İpucu: ## ile alt başlık, **metin** ile kalın yazı oluşturabilirsiniz.</div>
+      </div>
+      <div class="wp-btns">
+        <button class="wp-cancel" onclick="wpClose()">İptal</button>
+        <button class="wp-pub" onclick="wpPublish()">Yayınla →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nav>
+  <a href="index.html" class="n-logo"><div class="n-hex">88</div><span class="n-brand">Tarsus 88</span></a>
+  <ul class="n-links">
+    <li><a href="index.html#about">Kurumsal</a></li>
+    <li><a href="hizmetler.html">Hizmetler</a></li>
+    <li><a href="haberler.html">Haberler</a></li>
+    <li><a href="portal.html" class="n-portal">Üye Portali ✦</a></li>
+    <li><a href="ilanlar.html">İş İlanları</a></li>
+    <li><a href="blog.html" class="act">Blog</a></li>
+    <li><a href="sss.html">SSS</a></li>
+    <li><a href="index.html#contact">İletişim</a></li>
+  </ul>
+  <a href="index.html#quote" class="n-cta">Teklif Al</a>
+</nav>
+
+<section class="ph">
+  <div class="wrap">
+    <div class="ph-eye">Blog & Yazılar</div>
+    <h1 class="ph-title">Sektör<br><span>Blog</span></h1>
+    <p class="ph-sub">Karayolu taşımacılık rehberleri, mevzuat güncellemeleri ve sektör analizleri.</p>
+  </div>
+</section>
+
+<div class="bc"><div class="wrap"><div class="bc-i"><a href="index.html">Ana Sayfa</a><span>›</span><span>Blog</span></div></div></div>
+
+<!-- MAKALE GÖRÜNÜMÜ -->
+<div id="articleView">
+  <div class="wrap" style="max-width:900px">
+    <button class="art-back" onclick="showList()">Tüm Yazılar</button>
+    <div class="art-eyebrow" id="art-cat"></div>
+    <h1 class="art-title" id="art-title"></h1>
+    <div class="art-meta">
+      <span class="art-date" id="art-date"></span>
+      <span class="art-read" id="art-readtime"></span>
+    </div>
+    <div class="art-body" id="art-body"></div>
+  </div>
+</div>
+
+<!-- LİSTE GÖRÜNÜMÜ -->
+<div id="listView">
+  <div class="wrap">
+    <div class="main-layout">
+      <div>
+        <div class="blog-featured rv" id="featuredPost"></div>
+        <div class="blog-list" id="blogList" style="margin-top:2px"></div>
+      </div>
+      <aside>
+        <div class="sw rv">
+          <button class="write-btn" onclick="wpOpen()">✎ Yazı Yaz</button>
+        </div>
+        <div class="sw rv d1">
+          <div class="sw-t">Kategoriler</div>
+          <div style="display:flex;flex-direction:column;gap:.5rem">
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:.88rem;color:var(--fog);padding:.4rem 0;cursor:pointer;font-weight:300" onclick="filterBlog('all')">Tüm Yazılar <span style="font-family:var(--fm);font-size:.62rem;color:var(--amber2);font-weight:700" id="cnt-all">—</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:.88rem;color:var(--fog);padding:.4rem 0;cursor:pointer;font-weight:300" onclick="filterBlog('rehber')">Rehber & İpuçları <span style="font-family:var(--fm);font-size:.62rem;color:var(--amber2);font-weight:700" id="cnt-rehber">—</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:.88rem;color:var(--fog);padding:.4rem 0;cursor:pointer;font-weight:300" onclick="filterBlog('mevzuat')">Mevzuat <span style="font-family:var(--fm);font-size:.62rem;color:var(--amber2);font-weight:700" id="cnt-mevzuat">—</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:.88rem;color:var(--fog);padding:.4rem 0;cursor:pointer;font-weight:300" onclick="filterBlog('sektor')">Sektör Analizi <span style="font-family:var(--fm);font-size:.62rem;color:var(--amber2);font-weight:700" id="cnt-sektor">—</span></div>
+          </div>
+        </div>
+        <div class="sw rv d2">
+          <div class="sw-t">Etiketler</div>
+          <div class="sw-tags">
+            <span class="sw-tag">TIR Kiralama</span>
+            <span class="sw-tag">Fiyat</span>
+            <span class="sw-tag">K1 Belgesi</span>
+            <span class="sw-tag">Lowbed</span>
+            <span class="sw-tag">Parsiyel</span>
+            <span class="sw-tag">CMR</span>
+            <span class="sw-tag">Mevzuat</span>
+            <span class="sw-tag">Lojistik</span>
+          </div>
+        </div>
+        <div class="sw rv d3">
+          <div class="sw-t">Hızlı Erişim</div>
+          <div style="display:flex;flex-direction:column;gap:.6rem">
+            <a href="index.html#quote" style="font-family:var(--fm);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber2);text-decoration:none;font-weight:600">→ Teklif Al</a>
+            <a href="sss.html" style="font-family:var(--fm);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber2);text-decoration:none;font-weight:600">→ Sık Sorulan Sorular</a>
+            <a href="hizmetler.html" style="font-family:var(--fm);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber2);text-decoration:none;font-weight:600">→ Hizmetlerimiz</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="ft-l"><div class="ft-hex">88</div><span class="ft-brand">Tarsus 88</span></div>
+  <ul class="ft-nav">
+    <li><a href="index.html">Ana Sayfa</a></li>
+    <li><a href="hizmetler.html">Hizmetler</a></li>
+    <li><a href="haberler.html">Haberler</a></li>
+    <li><a href="portal.html">Üye Portali</a></li>
+    <li><a href="sss.html">SSS</a></li>
+    <li><a href="index.html#contact">İletişim</a></li>
+  </ul>
+  <p class="ft-copy">© 2025 S.S. 88 Nolu Tarsus Kooperatifi</p>
+</footer>
+
+<script>
+// Sabit blog yazıları
+var STATIC_POSTS = [
+  {
+    id: 's1', cat:'rehber', date:'15 Mar 2025', readtime:'7 dk okuma',
+    title:'TIR Kiralama Rehberi 2025: Fiyatlar, Süreç ve Dikkat Edilmesi Gerekenler',
+    exc:'Türkiye\'de TIR kiralama nasıl çalışır? Fiyatları etkileyen faktörler, doğru taşıyıcı seçimi ve süreç adımları.',
+    body:`## TIR Kiralama Nedir?
+
+Karayolu taşımacılığında TIR kiralamak; yükünüzü bir noktadan diğerine taşımak için araç ve sürücü dahil tam hizmet almak anlamına gelir. Türkiye'de **K1 Yetki Belgeli** taşıyıcılarla çalışmak yasal zorunluluktur.
+
+## Fiyatı Etkileyen Faktörler
+
+Türkiye'de TIR taşımacılık fiyatları şu değişkenlere göre belirlenir:
+
+- **Güzergah mesafesi** — km başına maliyet, bölgeye göre farklılık gösterir
+- **Yük ağırlığı ve hacmi** — Standart TIR max 24 ton / 82 m³ kapasitedir
+- **Araç tipi** — Tenteli, frigorifik, lowbed, silo farklı fiyatlanır
+- **Mevsim ve dönem** — Hasat dönemlerinde (Temmuz–Eylül) ve yılbaşında arz düşer, fiyat yükselir
+- **Yakıt fiyatları** — Motorin maliyeti doğrudan taşıma fiyatını etkiler
+
+## Doğru Taşıyıcı Nasıl Seçilir?
+
+### Belge Kontrolü
+Mutlaka **K1 Yetki Belgesi** olan taşıyıcıyla çalışın. Bu belge olmadan yapılan taşımacılık yasaldır. Kooperatif üyelerimizin tamamı K1 belgeli araç sahipleridir.
+
+### Sigorta
+**CMR Sigortası** uluslararası taşımada zorunlu, yurt içinde ise nakliyat sigortası yaptırılması önerilir.
+
+### Referans
+Taşıyıcının daha önce benzer yük taşıyıp taşımadığını sorun. Özellikle lowbed, tehlikeli madde gibi özel taşımalar deneyim gerektirir.
+
+## Teklif Alırken Neleri Paylaşmalısınız?
+
+Hızlı ve doğru fiyat almak için şunları hazırlayın:
+
+- Çıkış ve varış adresi (il değil, ilçe ve mahalle düzeyinde)
+- Yük cinsi, ağırlığı ve hacmi
+- Yükleme tarihi
+- Araç tipi tercihiniz
+- Sigorta gereksinimi
+
+> **Tarsus 88 Kooperatifi**, 520 K1 belgeli üye ve 600 araçlık filosuyla aynı iş günü teklif sunmaktadır. Teklif formumuzu doldurun, sizi arayalım.`
+  },
+  {
+    id: 's2', cat:'mevzuat', date:'2 Mar 2025', readtime:'5 dk okuma',
+    title:'2025 Karayolu Taşımacılık Mevzuatı: Bilmeniz Gereken 5 Değişiklik',
+    exc:'2025 yılında yürürlüğe giren karayolu taşımacılık mevzuatı değişiklikleri. K1, L1, R1 belgeleri ve UETDS güncellemeleri.',
+    body:`## 2025 Yılında Neler Değişti?
+
+Ulaştırma ve Altyapı Bakanlığı, karayolu taşımacılık sektörüne yönelik önemli düzenlemeler hayata geçirdi. İşte bilmeniz gereken 5 kritik değişiklik:
+
+## 1. UETDS Yük Bildirim Yetkisi
+
+**Eski durum:** Hem taşıyıcılar hem organizatörler (R1/TİO belgeli) yük bildirimi yapabiliyordu.
+
+**Yeni durum:** UETDS sistemine yük bildirimi artık **yalnızca K1 belgeli taşıyıcılar** tarafından yapılabilmektedir. Bu değişiklik 2024 yılı ortasında yürürlüğe girdi ve 2025'te uygulaması sıkılaştırıldı.
+
+## 2. Araç Muayene Süreleri
+
+Ağır taşıt muayene periyotlarında kademeli sıkılaşma devam ediyor. **5 yaş altı araçlar** yıllık muayene yükümlülüğü kapsamına alındı.
+
+## 3. Sürücü Çalışma Saatleri Denetimi
+
+Dijital takograf kayıtlarının denetimi artıyor. AB normlarına paralel şekilde **4.5 saat sürüş, 45 dakika mola** kuralı elektronik sistemlerle izleniyor.
+
+## 4. K1 Belgesi Yenileme Kolaylaştırıldı
+
+e-Devlet üzerinden K1 belgesi yenileme süreci basitleştirildi. Fiziksel başvuru zorunluluğu azaltıldı, online tescil imkânı genişletildi.
+
+## 5. Yetki Belgesi Denetimleri
+
+2025'te sahada denetim sıklığı artacak. K1, L1, R1 belgesi olmadan faaliyet gösteren taşıyıcılara uygulanan idari para cezaları yükseltildi.
+
+## Ne Yapmalısınız?
+
+- Araç belgelerinizi (muayene, sigorta, K1) düzenli takip edin
+- UETDS bildirimlerini zamanında ve eksiksiz yapın
+- Dijital takograf kayıtlarını saklayın (min. 1 yıl)
+- Herhangi bir konuda destek için kooperatif müdürlüğünü arayın: **+90 324 636 33 88**`
+  },
+  {
+    id: 's3', cat:'sektor', date:'20 Şub 2025', readtime:'6 dk okuma',
+    title:'Türkiye Lojistik Sektörü 2025 Görünümü: Fırsatlar ve Riskler',
+    exc:'2025 yılında Türkiye karayolu lojistik sektörünü bekleyen fırsatlar, zorluklar ve piyasa dinamikleri.',
+    body:`## Genel Görünüm
+
+Türkiye karayolu taşımacılık sektörü, 2024 sonunda yaklaşık **280 milyar TL** ciroya ulaştı. 2025'te bu rakamın %15–20 büyüme kaydetmesi bekleniyor. Ancak bu büyüme bazı kritik riskler eşliğinde geliyor.
+
+## Fırsatlar
+
+### E-ticaret Patlaması
+Türkiye'de e-ticaret hacmi her yıl %30'un üzerinde büyüyor. Bu büyüme, **son mil teslimat** ve **depo-dağıtım merkezi** lojistiğine büyük talep yaratıyor.
+
+### Çukurova Lojistik Üssü
+Mersin Limanı'nın kapasitesi genişliyor. Tarsus, Adana ve Osmaniye'deki OSB yatırımları hız kazanıyor. Bölge merkezli taşıyıcılar için bu büyüme doğrudan iş hacmi anlamına geliyor.
+
+### Ortadoğu Güzergahları
+Suriye'de normalleşme süreci başladı. Türkiye–Suriye–Irak–Körfez koridoru yeniden canlanırsa **Hatay–Gaziantep güzergahı** kritik önem kazanacak.
+
+## Riskler
+
+### Yakıt Maliyetleri
+Motorin fiyatları belirsizliğini koruyor. Sabit kontrat yaparken **yakıt eskalatör maddesi** eklenmesi kritik önem taşıyor.
+
+### Şoför Açığı
+Sektörde deneyimli uzun yol şoförü açığı büyüyor. Ortalama yaş yükseliyor, genç nesil uzun yol tercih etmiyor. **Sürücü yetiştirme ve elde tutma** stratejileri önem kazanıyor.
+
+### Dijital Dönüşüm Baskısı
+Büyük yük sahipleri artık taşıyıcılardan GPS takip, anlık durum bildirimi ve dijital CMR talep ediyor. Teknolojiyi benimsemeyen taşıyıcılar kurumsal müşteri kaybedebilir.
+
+## Tarsus 88 Stratejisi
+
+Kooperatifimiz 2025'te dijital altyapı yatırımlarını hızlandırıyor. Online üye portali, yük takip sistemi ve iş ilanı platformu bu dönüşümün ilk adımları.`
+  },
+  {
+    id: 's4', cat:'rehber', date:'5 Şub 2025', readtime:'4 dk okuma',
+    title:'Parsiyel (LTL) Taşımacılık Nedir? Ne Zaman Tercih Edilmeli?',
+    exc:'Tam TIR doldurmayan yükler için parsiyel taşımacılık nasıl çalışır? Avantajları, dezavantajları ve doğru seçim kriterleri.',
+    body:`## Parsiyel Taşımacılık (LTL) Nedir?
+
+LTL (Less than Truck Load — Kamyon Dolusu Altı Yük), birden fazla gönderenin yükünün aynı araca **konsolide** edilerek taşınması sistemidir. Her gönderen yalnızca kullandığı kapasite kadar ücret öder.
+
+## FTL vs LTL: Karşılaştırma
+
+**FTL (Full Truck Load — Tam Araç):**
+- Araç sadece sizin yükünüzü taşır
+- Daha hızlı teslimat (direkt gidiş)
+- Hasar riski daha düşük (tek manipülasyon)
+- Kapasite doldurmasa da tam araç ücreti
+
+**LTL (Parsiyel):**
+- Farklı gönderenlerle maliyet paylaşımı
+- Daha uzun transit süre (konsolidasyon gerekir)
+- Uygun fiyat, düşük hacimli yükler için ideal
+- Haftalık veya belirli günlerde kalkış
+
+## Ne Zaman LTL Tercih Edilmeli?
+
+Şu durumlarda parsiyel taşımacılık avantajlıdır:
+
+- **500 kg – 5 ton** arası yükler
+- Haftalık veya aylık düzenli küçük hacimli sevkiyatlar
+- Bütçe kısıtlı olduğunda
+- Teslimat tarihinde esneklik olduğunda
+
+## Tarsus 88 Parsiyel Hizmeti
+
+Kooperatifimiz **Mersin merkezli** haftalık konsolidasyon seferleri düzenlemektedir:
+
+- **Pazartesi & Perşembe** kalkış
+- Minimum **500 kg veya 2 m³**
+- Türkiye'nin tüm illerine teslimat
+- Her yük ayrı sigortalanır
+
+Parsiyel teklif almak için iletişime geçin: **+90 533 725 83 29**`
+  }
+];
+
+var CAT_LABELS = {rehber:'Rehber & İpuçları', mevzuat:'Mevzuat', sektor:'Sektör Analizi', haber:'Kooperatif Haberleri'};
+
+function getPosts(){
+  var saved = [];
+  try{ saved = JSON.parse(localStorage.getItem('t88blog')||'[]'); }catch(e){}
+  return saved.concat(STATIC_POSTS);
+}
+
+function renderList(cat){
+  var posts = getPosts();
+  if(cat && cat!=='all') posts = posts.filter(function(p){return p.cat===cat;});
+
+  // Sayaçlar
+  var all = getPosts();
+  document.getElementById('cnt-all').textContent = all.length;
+  document.getElementById('cnt-rehber').textContent = all.filter(function(p){return p.cat==='rehber';}).length;
+  document.getElementById('cnt-mevzuat').textContent = all.filter(function(p){return p.cat==='mevzuat';}).length;
+  document.getElementById('cnt-sektor').textContent = all.filter(function(p){return p.cat==='sektor';}).length;
+
+  var feat = document.getElementById('featuredPost');
+  var list = document.getElementById('blogList');
+  feat.innerHTML = '';
+  list.innerHTML = '';
+
+  if(!posts.length){
+    list.innerHTML = '<div style="padding:3rem;text-align:center;font-family:var(--fm);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--fog);font-weight:600">Bu kategoride yazı yok</div>';
+    return;
+  }
+
+  // İlk yazı featured
+  var f = posts[0];
+  var del1 = !f.id.toString().startsWith('s') ? '<button class="admin-del" onclick="event.stopPropagation();delPost(\''+f.id+'\')">Sil</button>' : '';
+  feat.className = 'blog-featured rv bf';
+  feat.innerHTML =
+    '<div class="b-eye">'+CAT_LABELS[f.cat]+'</div>'+
+    '<h2 class="b-title">'+f.title+del1+'</h2>'+
+    '<p class="b-exc">'+f.exc+'</p>'+
+    '<div class="b-meta"><span class="b-date">'+f.date+'</span><span class="b-date">📖 '+f.readtime+'</span><span class="b-read-link">Devamını oku →</span></div>';
+  feat.onclick = function(){ openArticle(f); };
+
+  // Geri kalanlar
+  posts.slice(1).forEach(function(p){
+    var del = !p.id.toString().startsWith('s') ? '<button class="admin-del" onclick="event.stopPropagation();delPost(\''+p.id+'\')">Sil</button>' : '';
+    var div = document.createElement('div');
+    div.className = 'bc-card rv';
+    div.innerHTML =
+      '<div class="bc-accent"></div>'+
+      '<div class="bc-body">'+
+        '<div class="b-eye" style="margin-bottom:.5rem">'+CAT_LABELS[p.cat]+'</div>'+
+        '<h3 class="b-title" style="font-size:1.2rem;margin-bottom:.5rem">'+p.title+del+'</h3>'+
+        '<p class="b-exc" style="font-size:.88rem;margin-bottom:.8rem">'+p.exc+'</p>'+
+        '<div class="b-meta"><span class="b-date">'+p.date+'</span><span class="b-date">📖 '+p.readtime+'</span><span class="b-read-link">Devamını oku →</span></div>'+
+      '</div>';
+    div.onclick = function(){ openArticle(p); };
+    list.appendChild(div);
+  });
+
+  // Observer
+  var obs = new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('in');});},{threshold:.06});
+  document.querySelectorAll('#featuredPost.rv, #blogList .rv').forEach(function(el){obs.observe(el);});
+}
+
+function filterBlog(cat){
+  renderList(cat==='all'?null:cat);
+}
+
+function openArticle(p){
+  document.getElementById('listView').style.display = 'none';
+  var av = document.getElementById('articleView');
+  av.style.display = 'block';
+  document.getElementById('art-cat').textContent = CAT_LABELS[p.cat]||p.cat;
+  document.getElementById('art-title').textContent = p.title;
+  document.getElementById('art-date').textContent = p.date;
+  document.getElementById('art-readtime').textContent = '📖 ' + p.readtime;
+  document.getElementById('art-body').innerHTML = parseBody(p.body);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function showList(){
+  document.getElementById('articleView').style.display = 'none';
+  document.getElementById('listView').style.display = 'block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function parseBody(text){
+  // Basit markdown parser
+  return text
+    .split('\n\n')
+    .map(function(block){
+      block = block.trim();
+      if(!block) return '';
+      // h2
+      if(block.startsWith('## ')){
+        return '<h2>'+block.slice(3)+'</h2>';
+      }
+      // h3
+      if(block.startsWith('### ')){
+        return '<h3>'+block.slice(4)+'</h3>';
+      }
+      // blockquote
+      if(block.startsWith('> ')){
+        return '<div class="highlight"><p>'+md(block.slice(2))+'</p></div>';
+      }
+      // list
+      if(block.startsWith('- ')){
+        var items = block.split('\n').map(function(l){
+          return '<li>'+md(l.slice(2))+'</li>';
+        }).join('');
+        return '<ul>'+items+'</ul>';
+      }
+      // numbered list
+      if(/^\d+\./.test(block)){
+        var items = block.split('\n').map(function(l){
+          return '<li>'+md(l.replace(/^\d+\.\s*/,''))+'</li>';
+        }).join('');
+        return '<ol>'+items+'</ol>';
+      }
+      return '<p>'+md(block)+'</p>';
+    })
+    .join('');
+}
+
+function md(t){
+  // Bold
+  t = t.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+  return t;
+}
+
+// WRITE PANEL
+function wpOpen(){ document.getElementById('writePanel').classList.add('on'); document.body.style.overflow='hidden'; }
+function wpClose(){ document.getElementById('writePanel').classList.remove('on'); document.body.style.overflow=''; }
+
+function wpPublish(){
+  var title = document.getElementById('wp-title').value.trim();
+  var body  = document.getElementById('wp-body').value.trim();
+  if(!title||!body){ alert('Başlık ve içerik zorunludur.'); return; }
+  var cat   = document.getElementById('wp-cat').value;
+  var exc   = document.getElementById('wp-exc').value.trim() || body.slice(0,120)+'...';
+  var words = body.split(/\s+/).length;
+  var mins  = Math.max(1, Math.round(words/200));
+  var post  = {
+    id: Date.now().toString(),
+    cat: cat,
+    date: new Date().toLocaleDateString('tr-TR',{day:'numeric',month:'long',year:'numeric'}),
+    readtime: mins+' dk okuma',
+    title: title, exc: exc, body: body
+  };
+  var saved = [];
+  try{ saved = JSON.parse(localStorage.getItem('t88blog')||'[]'); }catch(e){}
+  saved.unshift(post);
+  localStorage.setItem('t88blog', JSON.stringify(saved));
+  document.getElementById('writePanel').querySelector('form, .wp-form').querySelectorAll('input,textarea,select').forEach(function(el){el.value='';});
+  wpClose();
+  renderList();
+}
+
+function delPost(id){
+  if(!confirm('Bu yazıyı silmek istediğinizden emin misiniz?')) return;
+  var saved = [];
+  try{ saved = JSON.parse(localStorage.getItem('t88blog')||'[]'); }catch(e){}
+  saved = saved.filter(function(p){return p.id!==id;});
+  localStorage.setItem('t88blog', JSON.stringify(saved));
+  renderList();
+}
+
+window.addEventListener('scroll',function(){
+  var s=window.scrollY,h=document.body.scrollHeight-window.innerHeight;
+  document.getElementById('bar').style.width=(h>0?s/h*100:0)+'%';
+},{passive:true});
+
+var obs=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('in');});},{threshold:.06});
+document.querySelectorAll('.rv').forEach(function(el){obs.observe(el);});
+
+// Init
+renderList();
+</script>
+</body>
+</html>
