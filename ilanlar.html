@@ -161,7 +161,7 @@ footer{background:var(--ink);padding:2.5rem 3.5rem;display:flex;align-items:cent
     <h1 class="ph-title">İş<br><span>İlanları</span></h1>
     <p class="ph-sub">Yük sahipleri taşıma ilanı açar, <strong>520 kooperatif üyesi</strong> teklif verir. Hızlı, güvenilir, belgelenmiş.</p>
     <div class="ph-meta">
-      <div class="ph-m">12 Aktif İlan</div>
+      <div class="ph-m">3 Aktif İlan</div>
       <div class="ph-m" style="--amber2:var(--green)">Anlık Güncelleniyor</div>
     </div>
   </div>
@@ -203,7 +203,7 @@ footer{background:var(--ink);padding:2.5rem 3.5rem;display:flex;align-items:cent
     <!-- İLAN LİSTESİ -->
     <div>
       <div class="job-header">
-        <span class="job-count" id="jobCount">12 İlan Bulundu</span>
+        <span class="job-count" id="jobCount">3 İlan Bulundu</span>
         <div class="job-sort">
           <button class="sort-btn on">En Yeni</button>
           <button class="sort-btn">Ücret ↑</button>
@@ -212,55 +212,21 @@ footer{background:var(--ink);padding:2.5rem 3.5rem;display:flex;align-items:cent
       </div>
       <div class="job-list" id="jobList">
 
-        <div class="jc rv" data-type="tir" data-status="urgent" data-text="mersin istanbul tenteli">
-          <div style="position:absolute;top:0;left:0;right:0;height:2px;background:#ef4444"></div>
+        <div class="jc rv" data-type="tir" data-status="active" data-text="mersin istanbul tenteli">
           <div class="jc-top">
             <div>
               <div class="jc-route">Mersin <span class="arrow">→</span> İstanbul</div>
               <div style="font-size:.82rem;color:var(--fog);margin-top:.2rem;font-weight:300">~640 km · Pazartesi kalkış</div>
             </div>
-            <div class="jc-price">
-              <div class="jc-price-n">₺8.500</div>
-              <div class="jc-price-l">Teklif Ücreti</div>
-            </div>
           </div>
           <div class="jc-tags">
             <span class="jc-tag">Tenteli TIR</span>
-            <span class="jc-tag">24 Ton</span>
+            <span class="jc-tag">22 Ton</span>
             <span class="jc-tag">Tekstil</span>
-            <span class="jc-tag jc-tag-fire">Acil</span>
           </div>
-          <p class="jc-desc">Paletli tekstil yükü — 24 ton kapasite. Mersin Tarsus OSB'den yükleme, İkitelli'ye teslimat. Sigorta dahil. Parsiyel teklif de kabul.</p>
+          <p class="jc-desc">Paletli tekstil yükü. Mersin Tarsus OSB'den yükleme, İkitelli'ye teslimat. Sigorta dahil.</p>
           <div class="jc-meta">
-            <span class="jc-date">18 Mar 2025</span>
-            <span class="jc-status jc-st-urgent">🔴 Acil</span>
-            <div class="jc-btns">
-              <button class="jc-btn-p" onclick="applyJob(this)">Teklif Ver</button>
-              <button class="jc-btn-g">Detay</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="jc rv d1" data-type="lowbed" data-status="active" data-text="adana ankara lowbed insaat">
-          <div class="jc-top">
-            <div>
-              <div class="jc-route">Adana <span class="arrow">→</span> Ankara</div>
-              <div style="font-size:.82rem;color:var(--fog);margin-top:.2rem;font-weight:300">~450 km · 2–3 Gün süre</div>
-            </div>
-            <div class="jc-price">
-              <div class="jc-price-n">₺14.200</div>
-              <div class="jc-price-l">Teklif Ücreti</div>
-            </div>
-          </div>
-          <div class="jc-tags">
-            <span class="jc-tag">Lowbed</span>
-            <span class="jc-tag">İnşaat Makinesi</span>
-            <span class="jc-tag">Özel İzin</span>
-            <span class="jc-tag">Pilot Araç</span>
-          </div>
-          <p class="jc-desc">Ekskavatör nakliyesi. Özel taşıma izni gerekiyor — kooperatif koordinasyonu yapabilir. Yükleme için vinç temin edilecek.</p>
-          <div class="jc-meta">
-            <span class="jc-date">17 Mar 2025</span>
+            <span class="jc-date">19 Mar 2025</span>
             <span class="jc-status jc-st-active">✓ Aktif</span>
             <div class="jc-btns">
               <button class="jc-btn-p" onclick="applyJob(this)">Teklif Ver</button>
@@ -269,108 +235,44 @@ footer{background:var(--ink);padding:2.5rem 3.5rem;display:flex;align-items:cent
           </div>
         </div>
 
-        <div class="jc rv d2" data-type="tir" data-status="active" data-text="tarsus gaziantep tenteli">
+        <div class="jc rv d1" data-type="tir" data-status="active" data-text="mersin manisa tenteli">
           <div class="jc-top">
             <div>
-              <div class="jc-route">Tarsus <span class="arrow">→</span> Gaziantep</div>
-              <div style="font-size:.82rem;color:var(--fog);margin-top:.2rem;font-weight:300">~220 km · Cuma kalkışı</div>
-            </div>
-            <div class="jc-price">
-              <div class="jc-price-n">₺3.200</div>
-              <div class="jc-price-l">Teklif Ücreti</div>
-            </div>
-          </div>
-          <div class="jc-tags">
-            <span class="jc-tag">Tenteli TIR</span>
-            <span class="jc-tag">18 Ton</span>
-            <span class="jc-tag">Plastik Hammadde</span>
-          </div>
-          <p class="jc-desc">Plastik granül, çuvallı. TÜPRAŞ Tarsus'tan yükleme, İslahiye OSB teslimat. Sabah erken yükleme tercih edilir.</p>
-          <div class="jc-meta">
-            <span class="jc-date">16 Mar 2025</span>
-            <span class="jc-status jc-st-active">✓ Aktif</span>
-            <div class="jc-btns">
-              <button class="jc-btn-p" onclick="applyJob(this)">Teklif Ver</button>
-              <button class="jc-btn-g">Detay</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="jc rv d3" data-type="ltl" data-status="active" data-text="mersin izmir parsiyel ltl">
-          <div class="jc-top">
-            <div>
-              <div class="jc-route">Mersin <span class="arrow">→</span> İzmir</div>
-              <div style="font-size:.82rem;color:var(--fog);margin-top:.2rem;font-weight:300">~600 km · Haftalık konsolidasyon</div>
-            </div>
-            <div class="jc-price">
-              <div class="jc-price-n">₺2.800</div>
-              <div class="jc-price-l">Teklif Ücreti</div>
-            </div>
-          </div>
-          <div class="jc-tags">
-            <span class="jc-tag">Parsiyel LTL</span>
-            <span class="jc-tag">4.5 Ton</span>
-            <span class="jc-tag">18 m³</span>
-            <span class="jc-tag">Hazır Giyim</span>
-          </div>
-          <p class="jc-desc">Hazır giyim ürünleri, asmacı koliler. Konsolidasyon seferine uygun. Salı toplanma, Çarşamba kalkış tercih edilir.</p>
-          <div class="jc-meta">
-            <span class="jc-date">15 Mar 2025</span>
-            <span class="jc-status jc-st-active">✓ Aktif</span>
-            <div class="jc-btns">
-              <button class="jc-btn-p" onclick="applyJob(this)">Teklif Ver</button>
-              <button class="jc-btn-g">Detay</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="jc rv d1" data-type="contract" data-status="active" data-text="mersin ankara sözleşmeli haftalık">
-          <div class="jc-top">
-            <div>
-              <div class="jc-route">Mersin <span class="arrow">→</span> Ankara</div>
-              <div style="font-size:.82rem;color:var(--fog);margin-top:.2rem;font-weight:300">~450 km · Haftada 3 sefer · 6 ay kontrat</div>
-            </div>
-            <div class="jc-price">
-              <div class="jc-price-n">₺7.800</div>
-              <div class="jc-price-l">Sefer başı</div>
-            </div>
-          </div>
-          <div class="jc-tags">
-            <span class="jc-tag jc-tag-fire">Sözleşmeli</span>
-            <span class="jc-tag">6 Ay</span>
-            <span class="jc-tag">Haftada 3×</span>
-            <span class="jc-tag">Gıda</span>
-          </div>
-          <p class="jc-desc">Büyük gıda firması — 6 aylık periyodik sözleşme. Haftada 3 sefer, 22 ton kapasite. Sabit fiyat garantili. Güvenilir uzun vadeli ortaklık arayan firmalar için.</p>
-          <div class="jc-meta">
-            <span class="jc-date">14 Mar 2025</span>
-            <span class="jc-status jc-st-full">● Sözleşmeli</span>
-            <div class="jc-btns">
-              <button class="jc-btn-p" onclick="applyJob(this)">Başvur</button>
-              <button class="jc-btn-g">Detay</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="jc rv d2" data-type="tir" data-status="active" data-text="hatay istanbul tenteli">
-          <div class="jc-top">
-            <div>
-              <div class="jc-route">Hatay <span class="arrow">→</span> İstanbul</div>
-              <div style="font-size:.82rem;color:var(--fog);margin-top:.2rem;font-weight:300">~900 km · Çarşamba kalkışı</div>
-            </div>
-            <div class="jc-price">
-              <div class="jc-price-n">₺11.500</div>
-              <div class="jc-price-l">Teklif Ücreti</div>
+              <div class="jc-route">Mersin <span class="arrow">→</span> Manisa</div>
+              <div style="font-size:.82rem;color:var(--fog);margin-top:.2rem;font-weight:300">~590 km · Çarşamba kalkışı</div>
             </div>
           </div>
           <div class="jc-tags">
             <span class="jc-tag">Tenteli TIR</span>
             <span class="jc-tag">20 Ton</span>
-            <span class="jc-tag">Tarım Ürünleri</span>
+            <span class="jc-tag">Makine Parçası</span>
           </div>
-          <p class="jc-desc">Mevsimlik sebze-meyve, palet. Samandağ'dan yükleme, Bayrampaşa hali teslimat. Erken sabah hazır olunması gerekiyor.</p>
+          <p class="jc-desc">Endüstriyel makine parçaları, paletli. Tarsus OSB'den yükleme, Manisa OSB teslimat.</p>
           <div class="jc-meta">
-            <span class="jc-date">14 Mar 2025</span>
+            <span class="jc-date">18 Mar 2025</span>
+            <span class="jc-status jc-st-active">✓ Aktif</span>
+            <div class="jc-btns">
+              <button class="jc-btn-p" onclick="applyJob(this)">Teklif Ver</button>
+              <button class="jc-btn-g">Detay</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="jc rv d2" data-type="tir" data-status="active" data-text="mersin samsun tenteli">
+          <div class="jc-top">
+            <div>
+              <div class="jc-route">Mersin <span class="arrow">→</span> Samsun</div>
+              <div style="font-size:.82rem;color:var(--fog);margin-top:.2rem;font-weight:300">~750 km · Perşembe kalkışı</div>
+            </div>
+          </div>
+          <div class="jc-tags">
+            <span class="jc-tag">Tenteli TIR</span>
+            <span class="jc-tag">18 Ton</span>
+            <span class="jc-tag">Ambalajlı Ürün</span>
+          </div>
+          <p class="jc-desc">Ambalajlı tüketim ürünleri. Tarsus'tan yükleme, Samsun merkez teslimat. Sabah erken hazır olunması tercih edilir.</p>
+          <div class="jc-meta">
+            <span class="jc-date">17 Mar 2025</span>
             <span class="jc-status jc-st-active">✓ Aktif</span>
             <div class="jc-btns">
               <button class="jc-btn-p" onclick="applyJob(this)">Teklif Ver</button>
@@ -430,8 +332,8 @@ footer{background:var(--ink);padding:2.5rem 3.5rem;display:flex;align-items:cent
       <!-- İSTATİSTİKLER -->
       <div class="stat-box rv d1">
         <div class="stat-box-title">Güncel İstatistikler</div>
-        <div class="stat-row"><span class="stat-label">Aktif İlanlar</span><span class="stat-val c-g">12</span></div>
-        <div class="stat-row"><span class="stat-label">Bu Ay Kapanan</span><span class="stat-val c-a">48</span></div>
+        <div class="stat-row"><span class="stat-label">Aktif İlanlar</span><span class="stat-val c-g">3</span></div>
+        <div class="stat-row"><span class="stat-label">Bu Ay Kapanan</span><span class="stat-val c-a">18</span></div>
         <div class="stat-row"><span class="stat-label">Hazır Araç</span><span class="stat-val c-b">600</span></div>
         <div class="stat-row"><span class="stat-label">Ort. Yanıt Süresi</span><span class="stat-val c-g">2.4 Saat</span></div>
         <div class="stat-row"><span class="stat-label">Teslim Başarısı</span><span class="stat-val c-g">%99.1</span></div>
